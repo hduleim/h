@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>بطاقات التهنئة - بطاقة الحج 1446هـ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --main-color: #0066cc;
+      --hover-color: #004d99;
+      --text-color: #333;
+      --bg-light: #f5f5f5;
+      --white: #fff;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-light);
+      color: var(--text-color);
+    }
+
+    .container {
+      max-width: 960px;
+      margin: auto;
+      padding: 20px;
+      background-color: var(--white);
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 25px;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: row-reverse;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .form-section {
+      flex: 1;
+      max-width: 320px;
+    }
+
+    .form-section h2 {
+      font-size: 16px;
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    .form-section label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .form-section input {
+      width: 100%;
+      padding: 10px;
+      font-size: 15px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .buttons a {
+      display: block;
+      padding: 10px;
+      text-align: center;
+      background-color: var(--main-color);
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.2s ease;
+      font-size: 14px;
+    }
+
+    .buttons a:hover {
+      background-color: var(--hover-color);
+    }
+
+    .image-preview {
+      position: relative;
+      width: 360px;
+      flex-shrink: 0;
+    }
+
+    .image-preview img {
+      width: 100%;
+      display: block;
+      border-radius: 5px;
+    }
+
+    .name-overlay {
+      position: absolute;
+      bottom: 19%;
+      right: 9%;
+      width: 80%;
+      text-align: right;
+      font-size: 16px;
+      font-weight: bold;
+      color: #000;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      pointer-events: none;
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 14px;
+      color: #777;
+    }
+
+    footer a {
+      color: var(--main-color);
+    }
+
+    @media (max-width: 768px) {
+      .content {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .image-preview {
+        width: 100%;
+        max-width: 360px;
+      }
+
+      .form-section {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>بطاقات التهنئة - بطاقة الحج 1446هـ</h1>
+
+  <div class="content">
+    <!-- المعاينة -->
+    <div class="image-preview">
+      <img id="base-image" src="https://downloader.disk.yandex.com/preview/e1079409a454ce7b0bab8ea8183d0755505b64dde486f701a70f4c7cfc95bcb9/683b4cc5/u_UrpqJuxJNRUjHgmsEbxaJaF-Bjalpd81DNWPkQ2_vb2Eruvy_u9DSsB52kQUhWIIwpczJmUYLuopay3ksldw%3D%3D?uid=0&filename=%D8%A8%D8%B7%D8%A7%D9%82%D8%A9%20%D8%A7%D9%84%D8%AD%D8%AC%207.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v3&size=2048x2048" alt="بطاقة التهنئة" />
+      <div class="name-overlay" id="overlay-text"></div>
+    </div>
+
+    <!-- نموذج الاسم -->
+    <div class="form-section">
+      <h2>اكتب اسمك وحمّل بطاقتك</h2>
+      <label for="name-input">الاسم</label>
+      <input type="text" id="name-input" placeholder="اكتب اسمك هنا" oninput="updateName()" />
+
+      <div class="buttons">
+        <a id="download-btn" href="#" download="بطاقة_الحج.png" onclick="prepareDownload()">تنزيل الصورة</a>
+        <a id="whatsapp-share" href="#" target="_blank">مشاركة عبر واتساب</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    جميع الحقوق محفوظة &copy; 2025<br>
+    تصميم: حسين الدليم – 
+    <a href="mailto:hduleim@gmail.com">hduleim@gmail.com</a> – 
+    هاتف: 0565575725
+  </footer>
+</div>
+
+<script>
+  function updateName() {
+    const name = document.getElementById("name-input").value.trim();
+    document.getElementById("overlay-text").textContent = name;
+  }
+
+  function prepareDownload() {
+    const name = document.getElementById("name-input").value.trim();
+    const baseImage = document.getElementById("base-image");
+
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+
+    const width = 1080;
+    const height = 1350;
+    canvas.width = width;
+    canvas.height = height;
+
+    const image = new Image();
+    image.crossOrigin = "anonymous";
+    image.src = baseImage.src;
+
+    image.onload = function () {
+      ctx.drawImage(image, 0, 0, width, height);
+
+      if (name !== "") {
+        ctx.font = "700 48px 'Cairo', sans-serif";
+        ctx.fillStyle = "#000";
+        ctx.textAlign = "right";
+
+        const x = width * 0.91;
+        const y = height * 0.81;
+
+        ctx.fillText(name, x, y);
+      }
+
+      const dataURL = canvas.toDataURL("image/png");
+      document.getElementById("download-btn").href = dataURL;
+
+      const message = encodeURIComponent(`بطاقتي المخصصة: ${name}`);
+      document.getElementById("whatsapp-share").href = `https://wa.me/?text=${message}`;
+    };
+
+    image.onerror = function () {
+      alert("حدث خطأ في تحميل الصورة. تأكد من صحة الرابط.");
+    };
+  }
+</script>
+
+</body>
+</html>
