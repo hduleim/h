@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
@@ -31,14 +31,15 @@
 
     .content {
       display: flex;
-      flex-direction: row-reverse;
-      gap: 30px;
       flex-wrap: wrap;
+      gap: 30px;
       justify-content: center;
+      flex-direction: row-reverse;
     }
 
     .form-section {
       max-width: 320px;
+      flex: 1;
     }
 
     .form-section h2 {
@@ -75,6 +76,7 @@
     .image-preview {
       position: relative;
       width: 360px;
+      flex-shrink: 0;
     }
 
     .image-preview img {
@@ -111,13 +113,13 @@
   <h1>بطاقات التهنئة - بطاقة الحج 1446هـ</h1>
 
   <div class="content">
-    <!-- معاينة التصميم -->
+    <!-- المعاينة -->
     <div class="image-preview">
       <img id="base-image" src="https://up4net.com/1j2S/hajcard.png" alt="بطاقة الحج" />
       <div class="name-overlay" id="overlay-text"></div>
     </div>
 
-    <!-- نموذج الإدخال -->
+    <!-- نموذج إدخال الاسم -->
     <div class="form-section">
       <h2>اكتب اسمك وحمّل بطاقتك</h2>
       <label for="name-input">الاسم</label>
@@ -147,9 +149,9 @@
 
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
+
     const width = 1080;
     const height = 1350;
-
     canvas.width = width;
     canvas.height = height;
 
