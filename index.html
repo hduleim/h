@@ -1,83 +1,181 @@
-RedirectMatch ^/$ /media-qabbas/index.html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>بطاقات التهنئة - بطاقة الحج 1446هـ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+      color: #333;
+    }
 
-#Content-Security-Policy: upgrade-insecure-requests
+    .container {
+      max-width: 960px;
+      margin: auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
 
+    h1 {
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 25px;
+    }
 
-##Begins Hostpapa HTTPS REDIRECT##
-<IfModule mod_rewrite.c>
-RewriteEngine On
-RewriteCond %{SERVER_PORT} !^443$
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-</IfModule>
-##ENDS Hostpapa HTTPS REDIRECT##
-# Use PHP5.6 as default
-## AddHandler application/x-httpd-ea-php56 .php
-## AddHandler application/x-httpd-eig-php52 .php
-# -FrontPage-
+    .content {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
-RewriteEngine on
-RewriteCond %{HTTP_HOST} ^(www.)?qabbas.com$
-RewriteCond %{REQUEST_URI} !^/home/
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /home/$1
-RewriteCond %{HTTP_HOST} ^(www.)?qabbas.com$
-RewriteRule ^(/)?$ home/ [L]
+    .form-section {
+      max-width: 320px;
+    }
 
+    .form-section h2 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
 
-AuthUserFile /home/qabbas/public_html/_vti_pvt/service.pwd
-AuthGroupFile /home/qabbas/public_html/_vti_pvt/service.grp
-# -FrontPage-
+    .form-section label {
+      font-size: 14px;
+      margin-bottom: 5px;
+      display: block;
+    }
 
-Options -Indexes
+    .form-section input {
+      width: 100%;
+      padding: 10px;
+      font-size: 15px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
 
-<Limit GET POST>
-order deny,allow
-deny from all
-allow from all
-</Limit>
-<Limit PUT DELETE>
-order deny,allow
-deny from all
-</Limit>
-AuthUserFile /home3/flame/public_html/_vti_pvt/service.pwd
-AuthGroupFile /home3/flame/public_html/_vti_pvt/service.grp
+    .buttons a {
+      display: block;
+      padding: 10px;
+      margin-bottom: 10px;
+      text-align: center;
+      background-color: #0066cc;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+    }
 
-AuthName www.qabbas.com
-IndexIgnore .htaccess */.??* *~ *# */HEADER* */README* */_vti*
+    .image-preview {
+      position: relative;
+      width: 360px;
+    }
 
-# Turn on Expires and set default to 0 
-ExpiresActive On 
-ExpiresDefault A0 
-  
-# Set up caching on media files for 1 year (forever?) 
-<FilesMatch "\.(flv|ico|pdf|avi|mov|ppt|doc|mp3|wmv|wav)$"> 
-ExpiresDefault A29030400 
-Header append Cache-Control "public" 
-</FilesMatch> 
-  
-# Set up caching on media files for 1 week 
-<FilesMatch "\.(gif|jpg|jpeg|png|swf)$"> 
-ExpiresDefault A604800 
-Header append Cache-Control "public" 
-</FilesMatch> 
-  
-# Set up 2 Hour caching on commonly updated files 
-<FilesMatch "\.(xml|txt|html|js|css)$"> 
-ExpiresDefault A7200 
-Header append Cache-Control "proxy-revalidate" 
-</FilesMatch> 
-  
-# Force no caching for dynamic files 
-<FilesMatch "\.(php|cgi|pl|htm)$"> 
-ExpiresActive Off 
-Header set Cache-Control "private, no-cache, no-store, proxy-revalidate, no-transform" 
-Header set Pragma "no-cache" 
-</FilesMatch>
+    .image-preview img {
+      width: 100%;
+      display: block;
+      border-radius: 5px;
+    }
 
-# php -- BEGIN cPanel-generated handler, do not edit
-# Set the “alt-php81” package as the default “PHP” programming language.
-<IfModule mime_module>
-  AddHandler application/x-httpd-alt-php81___lsphp .php .php8 .phtml
-</IfModule>
-# php -- END cPanel-generated handler, do not edit
+    .name-overlay {
+      position: absolute;
+      bottom: 20%;
+      right: 10%;
+      width: 80%;
+      font-size: 16px;
+      font-weight: bold;
+      color: #000;
+      text-align: right;
+      white-space: nowrap;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>بطاقات التهنئة - بطاقة الحج 1446هـ</h1>
+
+  <div class="content">
+    <!-- معاينة التصميم -->
+    <div class="image-preview">
+      <img id="base-image" src="https://up4net.com/1j2S/hajcard.png" alt="بطاقة الحج" />
+      <div class="name-overlay" id="overlay-text"></div>
+    </div>
+
+    <!-- نموذج الإدخال -->
+    <div class="form-section">
+      <h2>اكتب اسمك وحمّل بطاقتك</h2>
+      <label for="name-input">الاسم</label>
+      <input type="text" id="name-input" placeholder="اكتب اسمك هنا" oninput="updateName()" />
+      <div class="buttons">
+        <a id="download-btn" href="#" download="بطاقة_الحج.png" onclick="prepareDownload()">تنزيل الصورة</a>
+        <a id="whatsapp-share" href="#" target="_blank">مشاركة عبر واتساب</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    جميع الحقوق محفوظة &copy; 2025<br>
+    تصميم: حسين الدليم – hduleim@gmail.com – 0565575725
+  </footer>
+</div>
+
+<script>
+  function updateName() {
+    const name = document.getElementById("name-input").value.trim();
+    document.getElementById("overlay-text").textContent = name;
+  }
+
+  function prepareDownload() {
+    const name = document.getElementById("name-input").value.trim();
+    const baseImage = document.getElementById("base-image");
+
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+    const width = 1080;
+    const height = 1350;
+
+    canvas.width = width;
+    canvas.height = height;
+
+    const image = new Image();
+    image.crossOrigin = "anonymous";
+    image.src = baseImage.src;
+
+    image.onload = function () {
+      ctx.drawImage(image, 0, 0, width, height);
+      ctx.font = "700 48px 'Cairo', sans-serif";
+      ctx.fillStyle = "#000";
+      ctx.textAlign = "right";
+
+      const x = width * 0.90;
+      const y = height * 0.80;
+
+      ctx.fillText(name, x, y);
+
+      const dataURL = canvas.toDataURL("image/png");
+      document.getElementById("download-btn").href = dataURL;
+
+      const message = encodeURIComponent(`بطاقتي المخصصة: ${name}`);
+      document.getElementById("whatsapp-share").href = `https://wa.me/?text=${message}`;
+    };
+  }
+</script>
+
+</body>
+</html>
